@@ -7,7 +7,7 @@ Schema evolution is the concept where consumers and producers can work on differ
 3. Git
 
 ## Demo
-- [Using Apache Avro](avro-schema-evolution/README.md)
+- [Using Apache Avro](avro-schema-evolution)
 - Using Google Proto buffer - Coming soon
 
 

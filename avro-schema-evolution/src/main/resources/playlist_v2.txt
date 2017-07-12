@@ -1,0 +1,31 @@
+@namespace("org.anair.playlist")
+/**
+  Playlist schema has evolved. Follow "CHANGE" comments.
+*/
+protocol PlaylistProtocol {
+  @aliases(["Genre"])                //CHANGE: Modified Enumeration type
+  enum Type {
+    //JAZZ,                          //CHANGE: Removed type/genre
+    ROCK,
+    POP,
+    CLASSICAL                        //CHANGE: Added new type/genre
+  }
+
+  record Artist {
+    string name;
+  }
+
+  record Song {
+    string @aliases(["title"]) name; //CHANGE: Modified attribute name
+    //union  {null, int} duration;   //CHANGE: Removed this attribute
+    Type @aliases(["genre"]) type;   //CHANGE: Modified attribute name
+    Artist artist;
+    string language="english";       //CHANGE: Added new optional attribute with default value
+    long releaseDate=17000;          //CHANGE: Added new optional attribute with default value
+  }
+
+  record Playlist {
+    string name;
+    @java-class("java.util.HashSet") array<org.anair.playlist.Song> songs;
+  }
+}

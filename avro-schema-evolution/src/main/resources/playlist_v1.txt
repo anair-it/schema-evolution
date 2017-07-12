@@ -1,0 +1,28 @@
+@namespace("org.anair.playlist")
+/**
+    Playlist schema version 1.
+*/
+protocol PlaylistProtocol {
+
+  enum Genre {
+    JAZZ,
+    ROCK,
+    POP
+  }
+
+  record Artist {
+    string name;
+  }
+
+  record Song {
+    string title;
+    union  {null, int} duration;
+    Genre genre;
+    Artist artist;
+  }
+
+  record Playlist {
+    string name;
+    @java-class("java.util.HashSet") array<org.anair.playlist.Song> songs;
+  }
+}

@@ -1,4 +1,4 @@
-package org.anair.org.anair.avro.main;
+package org.anair.avro.main;
 
 import org.anair.avro.service.AvroSerde;
 import org.anair.playlist.Playlist;
